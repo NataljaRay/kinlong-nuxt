@@ -1,4 +1,7 @@
 <template>
+  <Head>
+    <Title>Страница контактов</Title>
+  </Head>
   <h1>Contacts</h1>
 </template>
 
