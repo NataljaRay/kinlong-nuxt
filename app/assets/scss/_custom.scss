@@ -1,10 +1,19 @@
 .grid {
   gap: 15px;
+  //display: grid;
+  //grid-template-columns: repeat(8, 1fr);
+  flex-wrap: wrap;
 }
 .grid-col {
   flex: 1;
   display: flex;
   align-items: end;
+
+  @media(max-width: 1440px) {
+    //flex-basis: calc(100% / 8);
+    //grid-template-columns: repeat(8, 1fr);
+    //grid-template-rows: repeat(8, 2fr);
+  }
 }
 
 .block {
@@ -24,7 +33,8 @@
   input[name='height'] {
     max-width: 140px;
   }
-  p {
+
+  &__title {
     margin-bottom: 6px;
   }
 }

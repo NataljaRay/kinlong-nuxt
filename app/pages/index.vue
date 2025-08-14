@@ -7,25 +7,25 @@
       <div class="flex grid">
         <div class="grid-col">
           <div class="block">
-            <p>Наименование</p>
-            <input type="text" placeholder="Введите наименование" name="name"/>
+            <p class="block__title">Наименование</p>
+            <input type="text" v-model="formData.name" placeholder="Введите наименование" name="name" id="name"/>
           </div>
         </div>
         <div class="grid-col">
           <div class="block">
-            <p>Ширина створки</p>
-            <input type="text" placeholder="Введите ширину" name="width"/>
+            <p class="block__title">Ширина створки</p>
+            <input type="text" v-model="formData.width" placeholder="Введите ширину" name="width" id="width"/>
           </div>
         </div>
         <div class="grid-col">
           <div class="block">
-            <p>Высота створки</p>
-            <input type="text" placeholder="Введите высоту" name="height"/>
+            <p class="block__title">Высота створки</p>
+            <input type="text" v-model="formData.height" placeholder="Введите высоту" name="height" id="height"/>
           </div>
         </div>
         <div class="grid-col">
           <div class="block">
-            <p>Петли</p>
+            <p class="block__title">Петли</p>
             <select>
               <option value="visible">Видимые</option>
               <option value="hidden">Скрытые</option>
@@ -34,7 +34,7 @@
         </div>
         <div class="grid-col">
           <div class="block">
-            <p>Тип фурнитуры</p>
+            <p class="block__title">Тип фурнитуры</p>
             <select id="fur-type">
               <option value="fur-1">Поворотно-откидная</option>
               <option value="fur-2">Поворотная</option>
@@ -47,7 +47,7 @@
         </div>
         <div class="grid-col">
           <div class="block">
-            <p>Открывание створки</p>
+            <p class="block__title">Открывание створки</p>
             <select id="open-type">
               <option value="open-right">Правое</option>
               <option value="open-left">Левое</option>
@@ -56,7 +56,7 @@
         </div>
         <div class="grid-col">
           <div class="block">
-            <p>Форма ручки</p>
+            <p class="block__title">Форма ручки</p>
             <select id="form-type">
               <option value="form-1">Вилка</option>
               <option value="form-2">Безрозеточная</option>
@@ -65,14 +65,18 @@
         </div>
         <div class="grid-col">
           <div class="block">
-            <p>Количество</p>
-            <input type="number" placeholder="Введите количество" name="number"/>
+            <p class="block__title">Количество</p>
+            <input type="number" v-model="formData.number" placeholder="Введите количество" name="number" id="number"/>
           </div>
         </div>
       </div>
       <div class="flex btn-container">
 <!--        <button id="getResult">Рассчитать</button>-->
         <span role="button" id="getResult" class="btn" @click="getResult">Рассчитать</span>
+      </div>
+
+      <div id="result">
+
       </div>
     </form>
 
@@ -99,24 +103,6 @@
           </tr>
           </tbody>
         </table>
-
-
-        <!--      <table class="table">-->
-        <!--        <thead>-->
-        <!--        <th>Артикул</th>-->
-        <!--        <th>Наименование</th>-->
-        <!--        <th>Тип</th>-->
-        <!--        <th>Цена, EUR</th>-->
-        <!--        </thead>-->
-        <!--        <tbody>-->
-        <!--        <tr v-for="item in dataBase" :key="item.art">-->
-        <!--          <td>{{item.art}}</td>-->
-        <!--          <td>{{item.label}}</td>-->
-        <!--          <td>{{item.type}}</td>-->
-        <!--          <td>{{item.priceEur}}</td>-->
-        <!--        </tr>-->
-        <!--        </tbody>-->
-        <!--      </table>-->
       </div>
 
     </details>
@@ -130,6 +116,12 @@
         data() {
             return {
                 showBase: false,
+                formData: {
+                    name: '',
+                    width: '',
+                    height: '',
+                    number: '',
+                },
                 dataBase2: [
                     {
                         type: 'nozhnitzy',
@@ -242,10 +234,14 @@
         },
         methods: {
             getResult() {
-                this.getFormData;
+                console.log('getResult')
+                this.getFormData();
             },
             getFormData() {
-
+                console.log('getFormData')
+                let result = document.querySelector('#result');
+                // let inputs = document.querySelectorAll('form input');
+                console.log(this.formData)
             },
             reName(name) {
                 let s = '';
