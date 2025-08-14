@@ -1,0 +1,1 @@
+import{a as e}from"./qnvJXKaz.js";import{c as t,o}from"./Dkb5zmZ8.js";const i={__name:"about",setup(r){return e({title:"О нас",ogTitle:"О нас",description:"111",ogDescription:"222"}),(a,c)=>(o(),t("h1",null,"About"))}};export{i as default};
